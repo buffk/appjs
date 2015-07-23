@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="favicon.ico">
+		<title>Demo and Examples</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/start/jquery-ui.css">
+		<link href="theme.css" rel="stylesheet">
+		<link href="../lib/app.js/modules/module.alert.css" rel="stylesheet">
+	</head>
+	<body role="document">
+		<div id="alerts"></div>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">App.js</a>
+				</div>
+				<div class="navbar-collapse collapse" id="navbar">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Demo</a></li>
+						<li><a href="https://github.com/h-zone/appjs/">GitHub</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div role="main" class="container">
+			<div class="page-header"><h1>app</h1></div>
+			<div class="page-header"><h4>installation</h4></div>
+			<pre>
+&lt;head&gt;
+	&lt;!-- app.js --&gt;
+	<b>&lt;script src="jquery.app.js"&gt;&lt;/script&gt;</b>
+	<b>&lt;script src="messages/messages.app.en.js"&gt;&lt;/script&gt;</b>
+	&lt;!-- alerts module --&gt;
+	<b>&lt;link href="modules/module.alert.css" rel="stylesheet"&gt;</b>
+	<b>&lt;script src="modules/module.alert.js"&gt;&lt;/script&gt;</b>
+	<b>&lt;script src="messages/messages.alert.en.js"&gt;&lt;/script&gt;</b>
+	&lt;!-- request module --&gt;
+	<b>&lt;script src="modules/module.request.js"&gt;&lt;/script&gt;</b>
+	<b>&lt;script src="messages/messages.request.en.js"&gt;&lt;/script&gt;</b>
+&lt;body&gt;
+	&lt;!-- alerts container --&gt;
+	<b>&lt;div id="alerts"&gt;&lt;/div&gt;</b>
+			</pre>
+
+			<div class="page-header"><h2>app.alert()</h2></div>
+			<div class="page-header"><h3>console</h3></div>
+			<p>
+				<button class="btn btn-default alertc" type="button" data-type="default">Default</button>
+				<button class="btn btn-primary alertc" type="button" data-type="primary">Primary</button>
+				<button class="btn btn-success alertc" type="button" data-type="success">Success</button>
+				<button class="btn btn-info alertc" type="button" data-type="info">Info</button>
+				<button class="btn btn-warning alertc" type="button" data-type="warning">Warning</button>
+				<button class="btn btn-danger alertc" type="button" data-type="danger">Danger</button>
+				<button class="btn btn-link alertc" type="button" data-type="link">Link</button>
+			</p>
+			<div class="page-header"><h4>example</h4></div>
+			<pre>
+app.alert({
+	type    : 'danger', // [ link | info | primary | default ] == info | success | warning | error == danger
+	content : 'your message',
+});
+			</pre>
+			<div class="page-header"><h3>bootstrap</h3></div>
+			<p>
+				<button class="btn btn-default alertbs" type="button" data-type="default">Default</button>
+				<button class="btn btn-primary alertbs" type="button" data-type="primary">Primary</button>
+				<button class="btn btn-success alertbs" type="button" data-type="success">Success</button>
+				<button class="btn btn-info alertbs" type="button" data-type="info">Info</button>
+				<button class="btn btn-warning alertbs" type="button" data-type="warning">Warning</button>
+				<button class="btn btn-danger alertbs" type="button" data-type="danger">Danger</button>
+				<button class="btn btn-link alertbs" type="button" data-type="link">Link</button>
+				<button class="btn btn-default alertbs all" type="button" data-type="all">ALL</button>
+			</p>
+			<div class="page-header"><h4>examples</h4></div>
+			<pre>
+app.alert({
+	type      : 'danger', // [ link | info | primary | default ] == info | success | warning | error == danger
+	content   : 'your message',
+	framework : 'bootstrap'
+});
+			</pre>
+
+			<div class="page-header"><h2>app.request()</h2></div>
+			<p>
+				app.request() is used to perform Ajax-requests to the server.<br />
+				The server returns the following type json<br />
+			</p>
+			<div class="page-header"><h4>code example</h4></div>
+			<pre>
+var myCallbackFunc = function(success, result) {
+	if ( success === true ) {
+		// do something with result
+	}
+};
+var postParams = {
+	someVar: 'someVal',
+	anotherVar: 123
+};
+app.request( postParams, myCallbackFunc );
+			</pre>
+			<div class="page-header"><h4>response example</h4></div>
+			<pre>
+{
+	"success" : BOOLEAN,      // application-level status
+	"data"    : MIXED,        // operated data
+	"error"   : STRING|OBJECT // if application-level error, instead of 'data'
+}
+			</pre>
+			<p>
+				App.Request will catch following error-levels: server and application. You do not need to cantch errors.<br />
+				<div class="alert alert-danger" role="alert">
+					<b>WARNING !</b>
+					<p>App.Request depends App.Alert !</p>
+				</div>
+			</p>
+		</div>
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<!-- BOOTSTRAP -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- jQuery UI -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<!-- APP.JS -->
+		<script src="../lib/app.js/jquery.app.js"></script>
+		<script src="../lib/app.js/messages/messages.app.en.js"></script>
+		<!-- APP.JS < ALERT-MODULE -->
+		<script src="../lib/app.js/modules/module.alert.js"></script>
+		<script src="../lib/app.js/messages/messages.alert.en.js"></script>
+		<!-- APP.JS < REQUEST-MODULE -->
+		<script src="../lib/app.js/modules/module.request.js"></script>
+		<script src="../lib/app.js/messages/messages.request.en.js"></script>
+		<script>
+			$( document ).ready( function()
+			{
+				$( 'button.alertc' ).click( function()
+				{
+					app.alert( {
+						type   : ($( this ).attr( 'data-type' ) || ''),
+						content: 'this is ' + ($( this ).attr( 'data-type' ) || '') + ' alert',
+					} );
+				} );
+				$( 'button.alertbs:not(.all)' ).click( function()
+				{
+					app.alert( {
+						type     : ($( this ).attr( 'data-type' ) || ''),
+						content  : 'this is ' + ($( this ).attr( 'data-type' ) || '') + ' alert',
+						framework: 'bootstrap'
+					} );
+				} );
+				$( 'button.alertbs.all' ).click( function()
+				{
+					app.alert( {
+						type     : 'default',
+						content  : 'this is default alert',
+						framework: 'bootstrap'
+					} );
+					app.alert( {
+						type     : 'link',
+						content  : 'this is link alert',
+						framework: 'bootstrap'
+					} );
+					app.alert( {
+						type     : 'info',
+						content  : 'this is info alert',
+						framework: 'bootstrap'
+					} );
+					app.alert( {
+						type     : 'primary',
+						content  : 'this is primary alert',
+						framework: 'bootstrap'
+					} );
+					app.alert( {
+						type     : 'warning',
+						content  : 'this is warning alert',
+						framework: 'bootstrap'
+					} );
+					app.alert( {
+						type     : 'error',
+						content  : 'this is error alert',
+						framework: 'bootstrap'
+					} );
+					app.alert( {
+						type     : 'danger',
+						content  : 'this is danger alert',
+						framework: 'bootstrap'
+					} );
+				} );
+			} );
+		</script>
+	</body>
+</html>

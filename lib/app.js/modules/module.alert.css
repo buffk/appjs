@@ -1,0 +1,23 @@
+/**
+ * Author  : Stanislav Kabin <me@h-zone.ru>
+ * GitHub  : https://github.com/h-zone/appjs
+ * License : MIT
+ * Version : 20150723
+ */
+DIV.alert {
+	cursor : pointer;
+}
+
+#alerts {
+	position  : fixed;
+	right     : 30px;
+	top       : 10px;
+	z-index   : 2000;
+	max-width : 300px;
+}
+
+#alerts .alert {
+	margin-bottom : 10px !important;
+	opacity       : 0.85;
+	width         : 300px;
+}

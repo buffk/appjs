@@ -1,5 +1,7 @@
 # Appjs
 
+https://github.com/h-zone/appjs
+
 General Javascript Application for your project based on jQuery-class with modular subsystem.
 
 Modules included.
